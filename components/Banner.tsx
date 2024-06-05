@@ -1,7 +1,10 @@
+"use client";
 
 import { useState } from "react";
 import Slider from "react-slick";
-
+import Image from "next/image";
+import Link from "next/link";
+import { urlFor } from "@/lib/sanityClient";
 
 const Banner = ({ banners }: any) => {
   const [dotActive, setDocActive] = useState(0);
@@ -106,7 +109,20 @@ const Banner = ({ banners }: any) => {
   };
   return (
     <div>
-      
+      <Slider {...settings}>
+        {banners?.map((item: any) => (
+          <Link href={"/"} className="relative" key={item?._id}>
+            <Image
+              src={urlFor(item.image).url()}
+              alt="banner image"
+              width={2000}
+              height={2000}
+              className="w-full max-h-[550px] object-contain bg-repeat-x"
+            />
+            <div className="w-full h-40 bg-gradient-to-t from-gray-100 to-transparent absolute bottom-0 z-20" />
+          </Link>
+        ))}
+      </Slider>
     </div>
   );
 };
