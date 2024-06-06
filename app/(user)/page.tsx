@@ -2,10 +2,10 @@ import React from "react";
 import { groq } from "next-sanity";
 import { client } from "@/lib/sanityClient";
 import Banner from "@/components/Banner";
-import NewArrival from "@/components/NewArrival";
 import HomeBanner from "@/components/HomeBanner";
 import BestSeller from "@/components/BestSeller";
 import YearProduct from "@/components/YearProduct";
+import NewArrival from "@/components/NewArrival";
 
 export const revalidate = 10;
 
@@ -36,7 +36,7 @@ const Homepage = async () => {
       {/* <Banner banners={banners} /> */}
       <NewArrival products={newArrivalProducts} />
       {/* <HomeBanner /> */}
-      {/* <BestSeller products={bestSellersProducts} title="Our Bestsellers" /> */}
+      <BestSeller products={bestSellersProducts} title="Our Bestsellers" />
       {/* <YearProduct /> */}
       {/* // <BestSeller products={specialOffersProducts} title="Special Offers" /> */}
     </main>

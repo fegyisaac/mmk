@@ -12,6 +12,9 @@ interface Props {
   }
 
 const BestSeller = ({ products, title }: Props) => {
+
+
+  console.log(products)
   return (
     <Container className="w-full pb-20">
       <Heading heading={title} />

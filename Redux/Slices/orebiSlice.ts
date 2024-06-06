@@ -52,9 +52,9 @@ export const orebiSlice = createSlice({
 
 export const {
   addToCart,
-//   increaseQuantity,
-//   decreaseQuantity,
-//   deleteProduct,
-//   resetCart,
+  increaseQuantity,
+  decreaseQuantity,
+  deleteProduct,
+  resetCart,
 } = orebiSlice.actions;
 export default orebiSlice.reducer;

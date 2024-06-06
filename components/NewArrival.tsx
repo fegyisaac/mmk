@@ -47,6 +47,9 @@ const NewArrival = ({ products }: Props) => {
     ],
   };
 
+  console.log(products);
+  
+
   return (
     <Container className="mt-10">
       <Slider {...settings}>
