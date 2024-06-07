@@ -1,17 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
-import { urlFor } from "@/lib/sanityClient";
 import { BsArrowsFullscreen } from "react-icons/bs";
 import { MdOutlineStarPurple500 } from "react-icons/md";
 import { AiOutlineShopping } from "react-icons/ai";
 import { ProductProps } from "@/type";
 
-interface Props {
-  product: ProductProps;
-  bg?: string;
-}
+// interface Props {
+//   product: ProductProps;
+//   bg?: string;
+// }
 
-const ListProduct = ({ product, bg }: Props) => {
+const ListProduct = ({ product, bg }: any) => {
   return (
     <div className="w-full relative group flex items-center border-[1px] hover:shadow-lg duration-200 shadow-gray-500 rounded-md overflow-hidden group">
       <div className="max-w-80 max-h-80 flex">
@@ -22,12 +21,12 @@ const ListProduct = ({ product, bg }: Props) => {
         >
           <Link
             href={{
-              pathname: `/product/${product?.slug?.current}`,
+              pathname: `/product`,
             }}
           >
             <Image
               className="w-72 h-72 object-contain"
-              src={urlFor(product?.image).url()}
+              src={product.img}
               width={700}
               height={700}
               alt="demo image"
@@ -45,7 +44,7 @@ const ListProduct = ({ product, bg }: Props) => {
       <div className="py-6 flex flex-col gap-5 px-4">
         <div className="flex items-center justify-between">
           <h2 className="text-lg text-primeColor font-bold">
-            {product?.title.substring(0, 15)}
+            {product?.title.substring(0, 60)}
           </h2>
         </div>
         <div className="flex items-center gap-2">
@@ -76,7 +75,7 @@ const ListProduct = ({ product, bg }: Props) => {
           </button>
           <Link
             href={{
-              pathname: `/product/${product?.slug?.current}`,
+              pathname: `/product`,
             }}
             className="bg-gray-800 text-gray-200 px-4 py-2 text-xs rounded-full flex items-center gap-1 hover:bg-gray-950 hover:text-white duration-200"
           >

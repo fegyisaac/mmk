@@ -2,7 +2,6 @@
 import React from "react";
 // import { ProductProps } from "../../type";
 import Image from "next/image";
-import { urlFor } from "@/lib/sanityClient";
 import Link from "next/link";
 import { ImCross } from "react-icons/im";
 import Price from "./Price";
@@ -15,11 +14,11 @@ import {
 } from "@/Redux/Slices/orebiSlice";
 import { ProductProps } from "@/type";
 
-interface Props {
-  item: ProductProps;
-}
+// interface Props {
+//   item: ProductProps;
+// }
 
-const CartItem = ({ item }: Props) => {
+const CartItem = ({item}: any ) => {
 
   const dispatch = useDispatch();
 
@@ -35,9 +34,9 @@ const CartItem = ({ item }: Props) => {
           }}
           className="text-primeColor hover:text-red-500 cursor-pointer duration-300"
         />
-        <Link href={`/product/${item?.slug?.current}`}>
+        <Link href={`/`}>
           <Image
-            src={urlFor(item?.image).url()}
+            src={item.img}
             alt="product image"
             width={50}
             height={50}
@@ -56,7 +55,7 @@ const CartItem = ({ item }: Props) => {
           <span
             onClick={() => {
               dispatch(decreaseQuantity({ _id: item?._id }));
-              toast.success("Product reduced successully");
+              toast.success("Product reduced successfully");
             }}
             className="w-6 h-6 bg-gray-100 text-2xl flex items-center justify-center hover:bg-gray-300 cursor-pointer duration-300 border-[1px] border-gray-300 hover:border-gray-500"
           >

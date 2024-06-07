@@ -1,44 +1,56 @@
 import React from "react";
-import { groq } from "next-sanity";
-import { client } from "@/lib/sanityClient";
 import Banner from "@/components/Banner";
 import HomeBanner from "@/components/HomeBanner";
-import BestSeller from "@/components/BestSeller";
 import YearProduct from "@/components/YearProduct";
 import NewArrival from "@/components/NewArrival";
 
-export const revalidate = 10;
-
-const bannerQuery = groq`*[_type == 'banner']{
-  image,
-  _id
-} | order(_createdAt asc)`;
-
-const newArrivalQuery = groq`*[_type == 'product' && position == 'New Arrivals']{
-...
-} | order(_createdAt asc)`;
-
-const bestSellersQuery = groq`*[_type == 'product' && position == 'Bestsellers']{
-  ...
- } | order(_createdAt asc)`;
-const specialOffersQuery = groq`*[_type == 'product' && position == 'Special Offers']{
-  ...
- } | order(_createdAt asc)`;
+// import Jewels from "@/assets/Assesories.jpeg";
+import Men from "@/assets/men.webp";
+import Women from "@/assets/WOMEN.webp";
+import Fabrics from "@/assets/fabrics.webp";
+import Unisex from "@/assets/unisex.webp";
+import BestSeller from "@/components/BestSeller";
+import Footer from "@/components/Footer";
 
 const Homepage = async () => {
-  const banners = await client.fetch(bannerQuery);
-  const newArrivalProducts = await client.fetch(bestSellersQuery);
-  const bestSellersProducts = await client.fetch(newArrivalQuery);
-  const specialOffersProducts = await client.fetch(specialOffersQuery);
-
+  const banners = [
+    // {
+    //   _id: 56,
+    //   img: Jewels,
+    //   text: "Jewels",
+    // },
+    {
+      _id: 89,
+      img: Men,
+      text: "Men",
+    },
+    {
+      _id: 85,
+      img: Women,
+      text: "Women",
+    },
+    {
+      _id: 83,
+      img: Fabrics,
+      text: "Fabrics",
+    },
+    {
+      _id: 77,
+      img: Unisex,
+      text: "Unisex",
+    },
+  ];
+  // const newArrivalProducts = ''
+  // const bestSellersProducts =""
   return (
-    <main className="text-sm overflow-hidden min-h-screen">
-      {/* <Banner banners={banners} /> */}
-      <NewArrival products={newArrivalProducts} />
-      {/* <HomeBanner /> */}
-      <BestSeller products={bestSellersProducts} title="Our Bestsellers" />
+    <main className="text-sm min-h-screen">
+      <Banner banners={banners} />
+      <NewArrival />
+      <HomeBanner />
+      <BestSeller />
       {/* <YearProduct /> */}
-      {/* // <BestSeller products={specialOffersProducts} title="Special Offers" /> */}
+      {/* <BestSeller  /> */}
+      {/* <Footer /> */}
     </main>
   );
 };

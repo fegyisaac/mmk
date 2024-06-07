@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Container from "./Container";
 import { StateProps } from "@/type";
-import emptyCart from "@/assets/emptyCart.png";
+// import emptyCart from "@/assets/emptyCart.png";
 
 import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
@@ -150,7 +150,7 @@ const Cart = () => {
         >
           <div>
             <Image
-              src={emptyCart}
+              src={''}
               alt="emptyCart"
               className="w-80 rounded-lg p-4 mx-auto"
             />

@@ -4,8 +4,8 @@ import "../../styles/globals.css";
 import Navbar from "@/components/Navbar";
 import "slick-carousel/slick/slick.css";
 import PageBtn from "@/components/PageBtn";
-import Footer from "@/components/Footer";
 import Layout from "@/components/Layout";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,7 +26,7 @@ export default function RootLayout({
           <Navbar />
           <PageBtn />
           {children}
-          {/* <Footer /> */}
+          <Footer />
         </Layout>
       </body>
     </html>

@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { urlFor } from "@/lib/sanityClient";
 import { ProductProps } from "@/type";
 import Price from "./Price";
 
@@ -20,11 +19,11 @@ const Onsale = ({ products }: Props) => {
         {products?.map((item: ProductProps) => (
           <Link
             key={item?._id}
-            href={`/product/${item?.slug?.current}`}
+            href={`/product`}
             className="flex items-center gap-4 border-b-[1px] border-b-gray-300 py-2"
           >
             <Image
-              src={urlFor(item?.image).url()}
+              src={''}
               alt="product image"
               className="w-24 object-contain"
               width={200}

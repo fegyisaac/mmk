@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 export interface ProductProps {
   _id: string;
   _type: string;
@@ -10,10 +12,7 @@ export interface ProductProps {
   ratings: number;
   description: string;
   brand: string;
-  slug: {
-    current: string;
-    _type: string;
-  };
+
   image: {
     _type: string;
     asset: {
@@ -38,3 +37,17 @@ export interface StateProps {
     productData: ProductProps[];
   };
 }
+
+
+export interface ProductIdProps {
+  _id: number;
+  links: string;
+  img: StaticImageData;
+  title: string;
+  prevPrice: number;
+  price: number;
+  brand: string;
+  new: boolean;
+  rating: number;
+  description: string;
+} 

@@ -3,7 +3,7 @@
 import Container from "@/components/Container";
 import ListProduct from "@/components/ListProduct";
 import Product from "@/components/Product";
-import { products } from "@/lib/sanityClient";
+import { allProducts } from "@/constants";
 import { ProductProps } from "@/type";
 import { useEffect, useState } from "react";
 import { BsGridFill } from "react-icons/bs";
@@ -14,17 +14,17 @@ const ShopPage = () => {
   const [showList, setShowList] = useState(false);
   const [productData, setProductData] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await products();
-        setProductData(data);
-      } catch (error) {
-        console.error("Error fetching product data:", error);
-      }
-    };
-    fetchData();
-  }, []);
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         const data = allProducts;
+//         setProductData(data);
+//       } catch (error) {
+//         console.error("Error fetching product data:", error);
+//       }
+//     };
+//     fetchData();
+//   }, []);
   return (
     <Container>
       <div className="flex items-center justify-between pb-10">
@@ -64,13 +64,13 @@ const ShopPage = () => {
 
       {showGrid ? (
         <div className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
-          {productData?.map((item: ProductProps) => (
+          {allProducts?.map((item) => (
             <Product key={item?._id} product={item} />
           ))}
         </div>
       ) : (
         <div className="w-full grid grid-cols-1 gap-5">
-          {productData?.map((item: ProductProps) => (
+          {allProducts?.map((item) => (
             <ListProduct key={item?._id} product={item} />
           ))}
         </div>

@@ -28,14 +28,11 @@ const Navbar = () => {
       title: "Cart",
       link: "/cart",
     },
-    {
-      title: "Profile",
-      link: "/profile",
-    },
-    {
-      title: "Studio",
-      link: "/studio",
-    },
+    // {
+    //   title: "Profile",
+    //   link: "/profile",
+    // },
+   
   ];
   return (
     <div className="w-full h-20 bg-white border-b-[1px] border-b-gray-400 sticky top-0 z-50">
@@ -45,7 +42,7 @@ const Navbar = () => {
         </Link>
 
         {/* input field */}
-        <div className="relative w-full hidden lg:inline-flex lg:w-[600px] h-10 text-base text-primeColor border-[1px] border-black items-center gap-2 justify-between px-6 rounded-md">
+        {/* <div className="relative w-full hidden lg:inline-flex lg:w-[600px] h-10 text-base text-primeColor border-[1px] border-black items-center gap-2 justify-between px-6 rounded-md">
           <input
             type="text"
             placeholder="Search your products here..."
@@ -62,7 +59,7 @@ const Navbar = () => {
           ) : (
             <FaSearch className="w-5 h-5 hover:cursor-pointer" />
           )}
-        </div>
+        </div> */}
 
         <div className="hidden md:inline-flex items-center gap-2">
           {navBarList.map((item) => (

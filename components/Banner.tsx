@@ -4,7 +4,6 @@ import { useState } from "react";
 import Slider from "react-slick";
 import Image from "next/image";
 import Link from "next/link";
-import { urlFor } from "@/lib/sanityClient";
 
 const Banner = ({ banners }: any) => {
   const [dotActive, setDocActive] = useState(0);
@@ -111,16 +110,18 @@ const Banner = ({ banners }: any) => {
     <div>
       <Slider {...settings}>
         {banners?.map((item: any) => (
-          <Link href={"/shop"} className="relative" key={item?._id}>
+          <div className="relative" key={item?._id}>
             <Image
-              src={urlFor(item.image).url()}
+              // src={urlFor(item.image).url()}
+              src={item.img}
               alt="banner image"
               width={2000}
               height={2000}
-              className="w-full max-h-[550px] object-contain bg-repeat-x"
+              className="w-full max-h-[650px] object-cover"
             />
-            <div className="w-full h-40 bg-gradient-to-t from-gray-100 to-transparent absolute bottom-0 z-20" />
-          </Link>
+            <div className="w-full h-10 bg-gradient-to-t from-gray-100 to-transparent absolute bottom-0 z-20" />
+            <p className="absolute text-[42px] text-white z-50 top-[290px] left-[250px]">{item.text}</p>
+          </div>
         ))}
       </Slider>
     </div>
